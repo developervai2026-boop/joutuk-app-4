@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>পাত্র মূল্যায়ন ক্যালকুলেটর 🇧🇩</title>
+    <title>যৌতুকের ক্যালকুলেটর 🇧🇩</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700;800&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Noto Sans Bengali', sans-serif;
@@ -25,530 +21,183 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(244, 176, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(244, 176, 0, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(244, 176, 0, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(244, 176, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none; z-index: 0;
         }
 
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
+        .container { max-width: 700px; margin: 0 auto; position: relative; z-index: 1; }
 
         /* ===== HEADER ===== */
         .header {
-            text-align: center;
-            padding: 30px 20px;
+            text-align: center; padding: 30px 20px;
             background: linear-gradient(145deg, #ffffff, #f8f9fa);
-            border-radius: 20px;
-            margin-bottom: 25px;
+            border-radius: 20px; margin-bottom: 25px;
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
-
         .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
             background: linear-gradient(90deg, #0d7c3e, #f4b000, #e74c3c, #f4b000, #0d7c3e);
         }
-
-        .header-flag {
-            font-size: 50px;
-            margin-bottom: 10px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .header h1 {
-            font-size: 28px;
-            font-weight: 800;
-            color: #0d7c3e;
-            margin-bottom: 8px;
-            line-height: 1.4;
-        }
-
-        .header p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .header .subtitle {
-            display: inline-block;
-            background: linear-gradient(135deg, #f4b000, #ff9500);
-            color: #fff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            margin-top: 10px;
-        }
+        .header-flag { font-size: 50px; margin-bottom: 10px; animation: pulse 2s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .header h1 { font-size: 28px; font-weight: 800; color: #0d7c3e; margin-bottom: 8px; line-height: 1.4; }
+        .header p { font-size: 14px; color: #666; line-height: 1.6; }
+        .header .subtitle { display: inline-block; background: linear-gradient(135deg, #f4b000, #ff9500); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 10px; }
 
         /* ===== SECTIONS ===== */
         .section {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #ffffff; border-radius: 16px; padding: 25px; margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .section:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-        }
-
-        .section-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .section h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .section h3 {
-            font-size: 15px;
-            font-weight: 500;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-        }
+        .section:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(0,0,0,0.15); }
+        .section-icon { font-size: 32px; margin-bottom: 10px; }
+        .section h2 { font-size: 20px; font-weight: 700; color: #2c3e50; margin-bottom: 5px; }
+        .section h3 { font-size: 15px; font-weight: 500; color: #7f8c8d; margin-bottom: 20px; }
 
         /* ===== FORM ELEMENTS ===== */
-        .form-group {
-            margin-bottom: 20px;
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; font-weight: 600; color: #34495e; margin-bottom: 8px; }
+        .form-group select, .form-group input[type="number"] {
+            width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px;
+            font-family: 'Noto Sans Bengali', sans-serif; font-size: 14px; color: #2c3e50;
+            background: #fafafa; transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: #34495e;
-            margin-bottom: 8px;
-        }
-
-        .form-group select,
-        .form-group input[type="number"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            font-family: 'Noto Sans Bengali', sans-serif;
-            font-size: 14px;
-            color: #2c3e50;
-            background: #fafafa;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            appearance: auto;
-        }
-
-        .form-group select:focus,
-        .form-group input:focus {
-            outline: none;
-            border-color: #0d7c3e;
-            box-shadow: 0 0 0 3px rgba(13, 124, 62, 0.15);
-            background: #fff;
-        }
-
-        .form-group input[type="number"] {
-            -moz-appearance: textfield;
-        }
+        .form-group select:focus, .form-group input:focus { outline: none; border-color: #0d7c3e; box-shadow: 0 0 0 3px rgba(13, 124, 62, 0.15); background: #fff; }
 
         /* ===== RADIO BUTTONS ===== */
-        .radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
+        .radio-group { display: flex; flex-direction: column; gap: 10px; }
         .radio-option {
-            display: flex;
-            align-items: center;
-            padding: 12px 15px;
-            border: 2px solid #e8e8e8;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #fafafa;
+            display: flex; align-items: center; padding: 12px 15px; border: 2px solid #e8e8e8;
+            border-radius: 10px; cursor: pointer; transition: all 0.3s ease; background: #fafafa;
         }
-
-        .radio-option:hover {
-            border-color: #0d7c3e;
-            background: #f0faf3;
-        }
-
-        .radio-option input[type="radio"] {
-            display: none;
-        }
-
-        .radio-option input[type="radio"]:checked + .radio-label {
-            color: #0d7c3e;
-            font-weight: 600;
-        }
-
-        .radio-option:has(input[type="radio"]:checked) {
-            border-color: #0d7c3e;
-            background: linear-gradient(135deg, #f0faf3, #e8f8ed);
-            box-shadow: 0 3px 10px rgba(13, 124, 62, 0.15);
-        }
-
+        .radio-option:hover { border-color: #0d7c3e; background: #f0faf3; }
+        .radio-option input[type="radio"] { display: none; }
+        .radio-option input[type="radio"]:checked + .radio-label { color: #0d7c3e; font-weight: 600; }
+        .radio-option:has(input[type="radio"]:checked) { border-color: #0d7c3e; background: linear-gradient(135deg, #f0faf3, #e8f8ed); box-shadow: 0 3px 10px rgba(13, 124, 62, 0.15); }
         .radio-custom {
-            width: 20px;
-            height: 20px;
-            border: 2px solid #ccc;
-            border-radius: 50%;
-            margin-right: 12px;
-            flex-shrink: 0;
-            position: relative;
-            transition: all 0.3s ease;
+            width: 20px; height: 20px; border: 2px solid #ccc; border-radius: 50%;
+            margin-right: 12px; flex-shrink: 0; position: relative; transition: all 0.3s ease;
         }
-
-        .radio-option:has(input[type="radio"]:checked) .radio-custom {
-            border-color: #0d7c3e;
-        }
-
+        .radio-option:has(input[type="radio"]:checked) .radio-custom { border-color: #0d7c3e; }
         .radio-option:has(input[type="radio"]:checked) .radio-custom::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 10px;
-            height: 10px;
-            background: #0d7c3e;
-            border-radius: 50%;
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 10px; height: 10px; background: #0d7c3e; border-radius: 50%;
         }
+        .radio-label { font-size: 13px; color: #555; line-height: 1.5; }
 
-        .radio-label {
-            font-size: 13px;
-            color: #555;
-            line-height: 1.5;
-        }
-
-        /* ===== CALCULATE BUTTON ===== */
+        /* ===== BUTTONS ===== */
         .calculate-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, #0d7c3e, #27ae60);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-family: 'Noto Sans Bengali', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(13, 124, 62, 0.3);
-            position: relative;
-            overflow: hidden;
+            width: 100%; padding: 16px; background: linear-gradient(135deg, #0d7c3e, #27ae60);
+            color: white; border: none; border-radius: 12px; font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 18px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(13, 124, 62, 0.3); position: relative; overflow: hidden;
         }
-
         .calculate-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: left 0.5s ease;
         }
+        .calculate-btn:hover::before { left: 100%; }
+        .calculate-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 35px rgba(13, 124, 62, 0.4); }
+        .calculate-btn:active { transform: translateY(0); }
 
-        .calculate-btn:hover::before {
-            left: 100%;
-        }
-
-        .calculate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(13, 124, 62, 0.4);
-        }
-
-        .calculate-btn:active {
-            transform: translateY(0);
-        }
-
-        /* ===== RESULT ===== */
-        .result-container {
-            display: none;
-            animation: slideUp 0.6s ease;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* ===== RESULT & DOWRY ===== */
+        .result-container { display: none; animation: slideUp 0.6s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .result-box {
-            background: linear-gradient(145deg, #ffffff, #f8f9fa);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa); border-radius: 20px;
+            padding: 30px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            position: relative; overflow: hidden;
         }
-
-        .result-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-        }
-
+        .result-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px; }
         .result-box.excellent::before { background: linear-gradient(90deg, #0d7c3e, #27ae60); }
         .result-box.good::before { background: linear-gradient(90deg, #2ecc71, #f4b000); }
         .result-box.average::before { background: linear-gradient(90deg, #f4b000, #f39c12); }
         .result-box.poor::before { background: linear-gradient(90deg, #e74c3c, #c0392b); }
         .result-box.disaster::before { background: linear-gradient(90deg, #8e44ad, #e74c3c); }
 
-        .result-emoji {
-            font-size: 60px;
-            margin-bottom: 15px;
-            animation: bounce 1s ease-in-out infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .result-title {
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
+        .result-emoji { font-size: 60px; margin-bottom: 15px; animation: bounce 1s ease-in-out infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .result-title { font-size: 24px; font-weight: 800; margin-bottom: 10px; }
         .result-box.excellent .result-title { color: #0d7c3e; }
         .result-box.good .result-title { color: #27ae60; }
         .result-box.average .result-title { color: #f39c12; }
         .result-box.poor .result-title { color: #e74c3c; }
         .result-box.disaster .result-title { color: #8e44ad; }
 
-        .result-score {
-            font-size: 48px;
-            font-weight: 800;
-            margin: 15px 0;
-        }
-
-        .result-box.excellent .result-score { color: #0d7c3e; }
-        .result-box.good .result-score { color: #27ae60; }
-        .result-box.average .result-score { color: #f39c12; }
-        .result-box.poor .result-score { color: #e74c3c; }
-        .result-box.disaster .result-score { color: #8e44ad; }
-
-        .result-description {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            text-align: left;
-        }
-
-        .result-breakdown {
-            text-align: left;
-            margin-top: 15px;
-        }
-
-        .breakdown-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px dashed #e0e0e0;
-        }
-
-        .breakdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .breakdown-label {
-            font-size: 13px;
-            color: #555;
-        }
-
-        .breakdown-value {
-            font-size: 14px;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 15px;
-            background: #f0faf3;
-            color: #0d7c3e;
-        }
-
-        .breakdown-value.negative {
-            background: #fde8e8;
-            color: #e74c3c;
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-            text-align: center;
-            padding: 25px 20px;
-            margin-top: 25px;
-            background: rgba(0,0,0,0.3);
-            border-radius: 16px;
-            backdrop-filter: blur(10px);
-        }
-
-        .footer p {
-            color: rgba(255,255,255,0.9);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .footer .warning {
-            font-size: 15px;
-            font-weight: 700;
-            color: #f4b000;
-            margin-bottom: 8px;
-        }
-
-        .footer .law {
-            font-size: 11px;
-            color: rgba(255,255,255,0.6);
-            margin-top: 10px;
-        }
-
-        /* ===== DIVIDER ===== */
-        .section-divider {
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
-            margin: 15px 0;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 480px) {
-            body { padding: 10px; }
-            .header h1 { font-size: 22px; }
-            .section { padding: 18px; }
-            .result-score { font-size: 36px; }
-            .result-title { font-size: 20px; }
-        }
-
-        /* ===== LOADING ANIMATION ===== */
-        .loading {
-            display: none;
-            text-align: center;
-            padding: 30px;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid #e0e0e0;
-            border-top: 4px solid #0d7c3e;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading p {
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* ===== TOOLTIP ===== */
-        .tooltip {
-            position: relative;
-            display: inline-block;
-            margin-left: 5px;
-            cursor: help;
-        }
-
-        .tooltip .tooltip-text {
-            visibility: hidden;
-            width: 200px;
-            background: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 8px;
-            padding: 8px 12px;
-            position: absolute;
-            z-index: 10;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 12px;
-            font-weight: 400;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .tooltip:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* ===== PROGRESS BAR ===== */
-        .progress-container {
-            width: 100%;
-            background: #e8f8ed;
-            border-radius: 10px;
-            height: 12px;
-            margin: 15px 0;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 100%;
-            border-radius: 10px;
-            transition: width 1s ease;
-            background: linear-gradient(90deg, #0d7c3e, #27ae60);
-        }
-
+        .result-score { font-size: 48px; font-weight: 800; margin: 15px 0; }
+        .progress-container { width: 100%; background: #e8f8ed; border-radius: 10px; height: 12px; margin: 15px 0; overflow: hidden; }
+        .progress-bar { height: 100%; border-radius: 10px; transition: width 1s ease; background: linear-gradient(90deg, #0d7c3e, #27ae60); }
         .progress-bar.good { background: linear-gradient(90deg, #2ecc71, #f4b000); }
         .progress-bar.average { background: linear-gradient(90deg, #f4b000, #f39c12); }
         .progress-bar.poor { background: linear-gradient(90deg, #e74c3c, #c0392b); }
         .progress-bar.disaster { background: linear-gradient(90deg, #8e44ad, #e74c3c); }
+
+        .result-description {
+            font-size: 14px; color: #666; line-height: 1.8; margin-bottom: 20px;
+            padding: 15px; background: #f8f9fa; border-radius: 10px; text-align: left;
+        }
+        .result-breakdown { text-align: left; margin-top: 15px; }
+        .breakdown-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 0; border-bottom: 1px dashed #e0e0e0;
+        }
+        .breakdown-item:last-child { border-bottom: none; }
+        .breakdown-label { font-size: 13px; color: #555; }
+        .breakdown-value {
+            font-size: 14px; font-weight: 700; padding: 3px 10px; border-radius: 15px;
+            background: #f0faf3; color: #0d7c3e;
+        }
+        .breakdown-value.negative { background: #fde8e8; color: #e74c3c; }
+
+        /* ===== DOWRY BOX ===== */
+        .dowry-box {
+            margin-top: 20px; padding: 15px; border-radius: 10px; text-align: center;
+            background: linear-gradient(135deg, #fff8f0, #ffe4d6);
+            border: 2px dashed #e67e22; position: relative;
+        }
+        .dowry-box h3 { color: #d35400; font-size: 16px; margin-bottom: 10px; }
+        .dowry-amount { font-size: 28px; font-weight: 800; color: #e74c3c; margin: 10px 0; display: block; }
+        .dowry-warning { font-size: 12px; color: #7f8c8d; margin-top: 8px; font-style: italic; line-height: 1.5; }
+        .dowry-strike { text-decoration: line-through; opacity: 0.6; font-size: 0.9em; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center; padding: 25px 20px; margin-top: 25px;
+            background: rgba(0,0,0,0.3); border-radius: 16px; backdrop-filter: blur(10px);
+        }
+        .footer p { color: rgba(255,255,255,0.9); font-size: 13px; line-height: 1.8; }
+        .footer .warning { font-size: 15px; font-weight: 700; color: #f4b000; margin-bottom: 8px; }
+        .footer .law { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 10px; }
+
+        .section-divider { height: 3px; background: linear-gradient(90deg, transparent, #e0e0e0, transparent); margin: 15px 0; }
+        .loading { display: none; text-align: center; padding: 30px; }
+        .loading-spinner {
+            width: 50px; height: 50px; border: 4px solid #e0e0e0; border-top: 4px solid #0d7c3e;
+            border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 15px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading p { color: #666; font-size: 14px; }
+        @media (max-width: 480px) { body { padding: 10px; } .header h1 { font-size: 22px; } .section { padding: 18px; } .result-score { font-size: 36px; } .result-title { font-size: 20px; } }
     </style>
 </head>
 <body>
 
     <div class="container">
-
-        <!-- ===== HEADER ===== -->
         <div class="header">
             <div class="header-flag">🇧🇩</div>
-            <h1>পাত্র মূল্যায়ন ক্যালকুলেটর</h1>
+            <h1>যৌতুকের ক্যালকুলেটর</h1>
             <p>পাত্রের সম্পূর্ণ "বাজার দর" জানুন — জমি, বাসা, প্রেম, অভ্যাস সহ!</p>
-            <span class="subtitle">⚠️ শুধুমাত্র বিনোদনের জন্য</span>
+            <span class="subtitle">⚠️ শুধুমাত্র বিনোদন ও সচেতনতার জন্য</span>
         </div>
 
-        <!-- ===== পেশা ===== -->
+        <!-- পেশা -->
         <div class="section">
             <div class="section-icon">💼</div>
             <h2>পাত্রের পেশা</h2>
             <h3>পেশা অনুযায়ী সম্মান ও আয়ের ভিত্তিতে পয়েন্ট</h3>
-
             <div class="form-group">
                 <label>পাত্রের পেশা নির্বাচন করুন:</label>
                 <select id="profession">
@@ -570,194 +219,90 @@
             </div>
         </div>
 
-        <!-- ===== বোনাস পয়েন্ট ===== -->
+        <!-- বোনাস পয়েন্ট -->
         <div class="section">
             <div class="section-icon">⭐</div>
             <h2>অতিরিক্ত "বোনাস পয়েন্ট" তথ্য</h2>
             <h3>এগুলো পাত্রের "বাজার দর" বাড়ায় বা কমায়!</h3>
-
             <div class="section-divider"></div>
 
-            <!-- জমি -->
             <div class="form-group">
                 <label>🏡 পাত্রের নিজের জমি আছে?</label>
                 <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="land" value="none">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">নেই (ভাড়া বাসায় থাকে)</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="land" value="village">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">গ্রামে কিছু জমি আছে</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="land" value="city_plot">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">শহরে প্লট/জমি আছে</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="land" value="landlord">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">বেশ বড় জমির মালিক (জমিদার টাইপ 😎)</span>
-                    </label>
+                    <label class="radio-option"><input type="radio" name="land" value="none"><span class="radio-custom"></span><span class="radio-label">নেই (ভাড়া বাসায় থাকে)</span></label>
+                    <label class="radio-option"><input type="radio" name="land" value="village"><span class="radio-custom"></span><span class="radio-label">গ্রামে কিছু জমি আছে</span></label>
+                    <label class="radio-option"><input type="radio" name="land" value="city_plot"><span class="radio-custom"></span><span class="radio-label">শহরে প্লট/জমি আছে</span></label>
+                    <label class="radio-option"><input type="radio" name="land" value="landlord"><span class="radio-custom"></span><span class="radio-label">বেশ বড় জমির মালিক (জমিদার টাইপ 😎)</span></label>
                 </div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- বাসা -->
             <div class="form-group">
                 <label>🏠 নিজের বাসা/ফ্ল্যাট আছে?</label>
                 <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="house" value="none">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">নেই (ভাড়া মেসে থাকে)</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="house" value="rented_family">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">পারিবারিক ভাড়া বাসা</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="house" value="flat">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">নিজের ফ্ল্যাট আছে (ঢাকায়) 🏢</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="house" value="duplex">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">নিজের ডুপ্লেক্স/বাড়ি আছে 🏡</span>
-                    </label>
+                    <label class="radio-option"><input type="radio" name="house" value="none"><span class="radio-custom"></span><span class="radio-label">নেই (ভাড়া মেসে থাকে)</span></label>
+                    <label class="radio-option"><input type="radio" name="house" value="rented_family"><span class="radio-custom"></span><span class="radio-label">পারিবারিক ভাড়া বাসা</span></label>
+                    <label class="radio-option"><input type="radio" name="house" value="flat"><span class="radio-custom"></span><span class="radio-label">নিজের ফ্ল্যাট আছে (ঢাকায়) 🏢</span></label>
+                    <label class="radio-option"><input type="radio" name="house" value="duplex"><span class="radio-custom"></span><span class="radio-label">নিজের ডুপ্লেক্স/বাড়ি আছে 🏡</span></label>
                 </div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- পারিবারিক -->
             <div class="form-group">
                 <label>👨‍👩‍👦 বাবা-মা কি বিয়ের পর একসাথে থাকবেন?</label>
                 <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="family" value="separate">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">না (আলাদা থাকবেন) — শান্তি! ✨</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="family" value="together">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">হ্যাঁ, যৌথ পরিবার 👨‍👩‍👧‍👦</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="family" value="same_city">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">একই শহরে কিন্তু আলাদা বাসা 🏘️</span>
-                    </label>
+                    <label class="radio-option"><input type="radio" name="family" value="separate"><span class="radio-custom"></span><span class="radio-label">না (আলাদা থাকবেন) — শান্তি! ✨</span></label>
+                    <label class="radio-option"><input type="radio" name="family" value="together"><span class="radio-custom"></span><span class="radio-label">হ্যাঁ, যৌথ পরিবার 👨‍👩‍👧‍👦</span></label>
+                    <label class="radio-option"><input type="radio" name="family" value="same_city"><span class="radio-custom"></span><span class="radio-label">একই শহরে কিন্তু আলাদা বাসা 🏘️</span></label>
                 </div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- প্রেম -->
             <div class="form-group">
                 <label>💔 বিয়ের আগে কয়টা প্রেম করেছে?</label>
                 <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="love" value="zero">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">০ — "আমি শুধু তোমার জন্য অপেক্ষা করেছি" 🥺</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="love" value="one">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">১ টা — "ওটা ছিল কলেজ লাইফ, এখন সব শেষ" 🎓</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="love" value="two">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">২ টা — "সেটা ছিল মিচুয়াল, এখন ক্লিন" 🧹</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="love" value="three_plus">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">৩+ — "আমি এক্সপেরিয়েন্সড, বুঝি মানুষ" 🎭</span>
-                    </label>
+                    <label class="radio-option"><input type="radio" name="love" value="zero"><span class="radio-custom"></span><span class="radio-label">০ — "আমি শুধু তোমার জন্য অপেক্ষা করেছি" 🥺</span></label>
+                    <label class="radio-option"><input type="radio" name="love" value="one"><span class="radio-custom"></span><span class="radio-label">১ টা — "ওটা ছিল কলেজ লাইফ, এখন সব শেষ" 🎓</span></label>
+                    <label class="radio-option"><input type="radio" name="love" value="two"><span class="radio-custom"></span><span class="radio-label">২ টা — "সেটা ছিল মিচুয়াল, এখন ক্লিন" 🧹</span></label>
+                    <label class="radio-option"><input type="radio" name="love" value="three_plus"><span class="radio-custom"></span><span class="radio-label">৩+ — "আমি এক্সপেরিয়েন্সড, বুঝি মানুষ" 🎭</span></label>
                 </div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- অভ্যাস -->
             <div class="form-group">
                 <label>🚬 কোনো খারাপ অভ্যাস আছে?</label>
                 <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="habit" value="none">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">নেই — ফেরেশতা পাত্র 😇</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="habit" value="tea">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">চা খায় বেশি — চা-আসক্ত 🫖</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="habit" value="smoking">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">সিগারেট খায় 🚬</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="habit" value="multiple">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">সিগারেট + জুয়া + ফেসবুক আসক্তি 📱🃏</span>
-                    </label>
+                    <label class="radio-option"><input type="radio" name="habit" value="none"><span class="radio-custom"></span><span class="radio-label">নেই — ফেরেশতা পাত্র 😇</span></label>
+                    <label class="radio-option"><input type="radio" name="habit" value="tea"><span class="radio-custom"></span><span class="radio-label">চা খায় বেশি — চা-আসক্ত 🫖</span></label>
+                    <label class="radio-option"><input type="radio" name="habit" value="smoking"><span class="radio-custom"></span><span class="radio-label">সিগারেট খায় 🚬</span></label>
+                    <label class="radio-option"><input type="radio" name="habit" value="multiple"><span class="radio-custom"></span><span class="radio-label">সিগারেট + জুয়া + ফেসবুক আসক্তি 📱🃏</span></label>
                 </div>
             </div>
 
             <div class="section-divider"></div>
 
-            <!-- গাড়ি -->
             <div class="form-group">
                 <label>🚗 গাড়ি আছে?</label>
                 <div class="radio-group">
-                    <label class="radio-option">
-                        <input type="radio" name="car" value="none">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">নেই — বাস/রিংশাই ব্যবহার করি 🚌</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="car" value="bike">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">বাইক আছে 🏍️</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="car" value="car_small">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">ছোট গাড়ি আছে (অল্টো/মারুতি) 🚙</span>
-                    </label>
-                    <label class="radio-option">
-                        <input type="radio" name="car" value="car_premium">
-                        <span class="radio-custom"></span>
-                        <span class="radio-label">প্রিমিয়াম গাড়ি (টয়োটা/হুন্ডাই/বিএমডব্লিউ) 🏎️</span>
-                    </label>
+                    <label class="radio-option"><input type="radio" name="car" value="none"><span class="radio-custom"></span><span class="radio-label">নেই — বাস/রিংশাই ব্যবহার করি 🚌</span></label>
+                    <label class="radio-option"><input type="radio" name="car" value="bike"><span class="radio-custom"></span><span class="radio-label">বাইক আছে 🏍️</span></label>
+                    <label class="radio-option"><input type="radio" name="car" value="car_small"><span class="radio-custom"></span><span class="radio-label">ছোট গাড়ি আছে (অল্টো/মারুতি) 🚙</span></label>
+                    <label class="radio-option"><input type="radio" name="car" value="car_premium"><span class="radio-custom"></span><span class="radio-label">প্রিমিয়াম গাড়ি (টয়োটা/হুন্ডাই/বিএমডব্লিউ) 🏎️</span></label>
                 </div>
             </div>
         </div>
 
-        <!-- ===== CALCULATE BUTTON ===== -->
-        <button class="calculate-btn" onclick="calculateDowry()">
-            🧮 বাজার দর হিসাব করুন!
-        </button>
+        <button class="calculate-btn" onclick="calculateDowry()">🧮 বাজার দর ও যৌতুকের হিসাব করুন!</button>
 
-        <!-- ===== LOADING ===== -->
         <div class="loading" id="loading">
             <div class="loading-spinner"></div>
-            <p>পাত্রের বাজার দর হিসাব হচ্ছে... 📊</p>
+            <p>পাত্রের বাজার দর ও অবৈধ যৌতুকের পরিমাণ হিসাব হচ্ছে... 📊</p>
         </div>
 
-        <!-- ===== RESULT ===== -->
         <div class="result-container" id="result">
             <div class="result-box" id="resultBox">
                 <div class="result-emoji" id="resultEmoji"></div>
@@ -768,166 +313,72 @@
                 <div class="result-score" id="resultScore"></div>
                 <p style="font-size: 13px; color: #999; margin-bottom: 15px;">/ ১০০ পয়েন্ট</p>
                 <div class="result-description" id="resultDescription"></div>
+                
+                <!-- যৌতুক সেকশন -->
+                <div class="dowry-box" id="dowryResult"></div>
+
                 <div class="result-breakdown" id="resultBreakdown"></div>
             </div>
         </div>
 
-        <!-- ===== FOOTER ===== -->
         <div class="footer">
             <p class="warning">⚠️ যৌতুক একটি অপরাধ — প্রতিরোধ করুন, প্রতিবাদ করুন</p>
-            <p>বাংলাদেশে যৌতুক গ্রহণ বা দাবি করা আইনত দণ্ডনীয় অপরাধ।<br>
-            যৌতুক প্রতিরোধ আইন, ১৯৮০ (সংশোধিত ২০১৮)</p>
-            <p class="law">এই ক্যালকুলেটর শুধুমাত্র বিনোদন ও সামাজিক সচেতনতার উদ্দেশ্যে তৈরি।<br>
-            © ২০২৬ — যৌতুকমুক্ত সমাজ গড়ি 🌿</p>
+            <p>বাংলাদেশে যৌতুক গ্রহণ বা দাবি করা আইনত দণ্ডনীয় অপরাধ।<br>যৌতুক প্রতিরোধ আইন, ১৯৮০ (সংশোধিত ২০১৮)</p>
+            <p class="law">এই ক্যালকুলেটর শুধুমাত্র বিনোদন ও সামাজিক সচেতনতার উদ্দেশ্যে তৈরি।<br>© ২০২৬ — যৌতুকমুক্ত সমাজ গড়ি 🌿</p>
         </div>
-
     </div>
 
     <script>
         function calculateDowry() {
             const profession = document.getElementById('profession').value;
-            
-            if (!profession) {
-                alert('⚠️ অনুগ্রহ করে পাত্রের পেশা নির্বাচন করুন!');
-                return;
-            }
-
-            // Show loading
+            if (!profession) { alert('⚠️ অনুগ্রহ করে পাত্রের পেশা নির্বাচন করুন!'); return; }
             document.getElementById('loading').style.display = 'block';
             document.getElementById('result').style.display = 'none';
-
-            setTimeout(() => {
-                document.getElementById('loading').style.display = 'none';
-                performCalculation();
-            }, 1500);
+            setTimeout(() => { document.getElementById('loading').style.display = 'none'; performCalculation(); }, 1500);
         }
 
         function performCalculation() {
             let totalScore = 0;
             let breakdown = [];
 
-            // ===== পেশা স্কোর =====
             const profession = document.getElementById('profession').value;
             const profScores = {
-                'bcs': { score: 25, label: 'বিসিএস ক্যাডার' },
-                'doctor': { score: 23, label: 'ডাক্তার' },
-                'engineer': { score: 18, label: 'ইঞ্জিনিয়ার/আইটি' },
-                'banker': { score: 17, label: 'ব্যাংকার' },
-                'remittance': { score: 20, label: 'প্রবাসী' },
-                'business': { score: 15, label: 'ব্যবসায়ী' },
-                'freelancer': { score: 14, label: 'ফ্রিল্যান্সার' },
-                'teacher': { score: 13, label: 'শিক্ষক' },
-                'ngo': { score: 12, label: 'এনজিও চাকরি' },
-                'politician': { score: 10, label: 'রাজনীতিবিদ' },
-                'farmer': { score: 8, label: 'কৃষক' },
-                'driver': { score: 5, label: 'ড্রাইভার/রিকশাচালক' },
+                'bcs': { score: 25, label: 'বিসিএস ক্যাডার' }, 'doctor': { score: 23, label: 'ডাক্তার' },
+                'engineer': { score: 18, label: 'ইঞ্জিনিয়ার/আইটি' }, 'banker': { score: 17, label: 'ব্যাংকার' },
+                'remittance': { score: 20, label: 'প্রবাসী' }, 'business': { score: 15, label: 'ব্যবসায়ী' },
+                'freelancer': { score: 14, label: 'ফ্রিল্যান্সার' }, 'teacher': { score: 13, label: 'শিক্ষক' },
+                'ngo': { score: 12, label: 'এনজিও চাকরি' }, 'politician': { score: 10, label: 'রাজনীতিবিদ' },
+                'farmer': { score: 8, label: 'কৃষক' }, 'driver': { score: 5, label: 'ড্রাইভার/রিকশাচালক' },
                 'unemployed': { score: 2, label: 'বেকার' }
             };
-
             const prof = profScores[profession];
-            totalScore += prof.score;
-            breakdown.push({ label: '💼 পেশা', value: prof.label, score: prof.score });
+            totalScore += prof.score; breakdown.push({ label: '💼 পেশা', value: prof.label, score: prof.score });
 
-            // ===== জমি =====
             const land = document.querySelector('input[name="land"]:checked');
-            const landScores = {
-                'none': { score: 0, label: 'জমি নেই' },
-                'village': { score: 5, label: 'গ্রামে জমি' },
-                'city_plot': { score: 10, label: 'শহরে প্লট' },
-                'landlord': { score: 15, label: 'বড় জমির মালিক' }
-            };
-            if (land) {
-                const ls = landScores[land.value];
-                totalScore += ls.score;
-                breakdown.push({ label: '🏡 জমি', value: ls.label, score: ls.score });
-            } else {
-                breakdown.push({ label: '🏡 জমি', value: 'তথ্য দেওয়া হয়নি', score: 0 });
-            }
+            const landScores = { 'none': { score: 0, label: 'জমি নেই' }, 'village': { score: 5, label: 'গ্রামে জমি' }, 'city_plot': { score: 10, label: 'শহরে প্লট' }, 'landlord': { score: 15, label: 'বড় জমির মালিক' } };
+            if (land) { totalScore += landScores[land.value].score; breakdown.push({ label: '🏡 জমি', value: landScores[land.value].label, score: landScores[land.value].score }); } else { breakdown.push({ label: '🏡 জমি', value: 'তথ্য নেই', score: 0 }); }
 
-            // ===== বাসা =====
             const house = document.querySelector('input[name="house"]:checked');
-            const houseScores = {
-                'none': { score: 0, label: 'ভাড়া মেস' },
-                'rented_family': { score: 5, label: 'পারিবারিক ভাড়া বাসা' },
-                'flat': { score: 12, label: 'নিজের ফ্ল্যাট' },
-                'duplex': { score: 18, label: 'নিজের ডুপ্লেক্স' }
-            };
-            if (house) {
-                const hs = houseScores[house.value];
-                totalScore += hs.score;
-                breakdown.push({ label: '🏠 বাসা', value: hs.label, score: hs.score });
-            } else {
-                breakdown.push({ label: '🏠 বাসা', value: 'তথ্য দেওয়া হয়নি', score: 0 });
-            }
+            const houseScores = { 'none': { score: 0, label: 'ভাড়া মেস' }, 'rented_family': { score: 5, label: 'পারিবারিক ভাড়া বাসা' }, 'flat': { score: 12, label: 'নিজের ফ্ল্যাট' }, 'duplex': { score: 18, label: 'নিজের ডুপ্লেক্স' } };
+            if (house) { totalScore += houseScores[house.value].score; breakdown.push({ label: '🏠 বাসা', value: houseScores[house.value].label, score: houseScores[house.value].score }); } else { breakdown.push({ label: '🏠 বাসা', value: 'তথ্য নেই', score: 0 }); }
 
-            // ===== পারিবারিক =====
             const family = document.querySelector('input[name="family"]:checked');
-            const familyScores = {
-                'separate': { score: 8, label: 'আলাদা থাকবেন' },
-                'together': { score: 0, label: 'যৌথ পরিবার' },
-                'same_city': { score: 5, label: 'একই শহরে আলাদা' }
-            };
-            if (family) {
-                const fs = familyScores[family.value];
-                totalScore += fs.score;
-                breakdown.push({ label: '👨‍👩‍👦 পরিবার', value: fs.label, score: fs.score });
-            } else {
-                breakdown.push({ label: '👨‍👩‍👦 পরিবার', value: 'তথ্য দেওয়া হয়নি', score: 0 });
-            }
+            const familyScores = { 'separate': { score: 8, label: 'আলাদা থাকবেন' }, 'together': { score: 0, label: 'যৌথ পরিবার' }, 'same_city': { score: 5, label: 'একই শহরে আলাদা' } };
+            if (family) { totalScore += familyScores[family.value].score; breakdown.push({ label: '👨‍👩‍👦 পরিবার', value: familyScores[family.value].label, score: familyScores[family.value].score }); } else { breakdown.push({ label: '👨‍👩‍👦 পরিবার', value: 'তথ্য নেই', score: 0 }); }
 
-            // ===== প্রেম =====
             const love = document.querySelector('input[name="love"]:checked');
-            const loveScores = {
-                'zero': { score: 10, label: '০ টা প্রেম' },
-                'one': { score: 5, label: '১ টা প্রেম' },
-                'two': { score: -2, label: '২ টা প্রেম' },
-                'three_plus': { score: -8, label: '৩+ টা প্রেম' }
-            };
-            if (love) {
-                const ls = loveScores[love.value];
-                totalScore += ls.score;
-                breakdown.push({ label: '💔 প্রেম', value: ls.label, score: ls.score, negative: ls.score < 0 });
-            } else {
-                breakdown.push({ label: '💔 প্রেম', value: 'তথ্য দেওয়া হয়নি', score: 0 });
-            }
+            const loveScores = { 'zero': { score: 10, label: '০ টা প্রেম' }, 'one': { score: 5, label: '১ টা প্রেম' }, 'two': { score: -2, label: '২ টা প্রেম' }, 'three_plus': { score: -8, label: '৩+ টা প্রেম' } };
+            if (love) { totalScore += loveScores[love.value].score; breakdown.push({ label: '💔 প্রেম', value: loveScores[love.value].label, score: loveScores[love.value].score, negative: loveScores[love.value].score < 0 }); } else { breakdown.push({ label: '💔 প্রেম', value: 'তথ্য নেই', score: 0 }); }
 
-            // ===== অভ্যাস =====
             const habit = document.querySelector('input[name="habit"]:checked');
-            const habitScores = {
-                'none': { score: 8, label: 'কোনো খারাপ অভ্যাস নেই' },
-                'tea': { score: 3, label: 'চা-আসক্ত' },
-                'smoking': { score: -5, label: 'সিগারেট খায়' },
-                'multiple': { score: -15, label: 'একাধিক খারাপ অভ্যাস' }
-            };
-            if (habit) {
-                const hs = habitScores[habit.value];
-                totalScore += hs.score;
-                breakdown.push({ label: '🚬 অভ্যাস', value: hs.label, score: hs.score, negative: hs.score < 0 });
-            } else {
-                breakdown.push({ label: '🚬 অভ্যাস', value: 'তথ্য দেওয়া হয়নি', score: 0 });
-            }
+            const habitScores = { 'none': { score: 8, label: 'কোনো খারাপ অভ্যাস নেই' }, 'tea': { score: 3, label: 'চা-আসক্ত' }, 'smoking': { score: -5, label: 'সিগারেট খায়' }, 'multiple': { score: -15, label: 'একাধিক খারাপ অভ্যাস' } };
+            if (habit) { totalScore += habitScores[habit.value].score; breakdown.push({ label: '🚬 অভ্যাস', value: habitScores[habit.value].label, score: habitScores[habit.value].score, negative: habitScores[habit.value].score < 0 }); } else { breakdown.push({ label: '🚬 অভ্যাস', value: 'তথ্য নেই', score: 0 }); }
 
-            // ===== গাড়ি =====
             const car = document.querySelector('input[name="car"]:checked');
-            const carScores = {
-                'none': { score: 0, label: 'গাড়ি নেই' },
-                'bike': { score: 5, label: 'বাইক আছে' },
-                'car_small': { score: 10, label: 'ছোট গাড়ি' },
-                'car_premium': { score: 15, label: 'প্রিমিয়াম গাড়ি' }
-            };
-            if (car) {
-                const cs = carScores[car.value];
-                totalScore += cs.score;
-                breakdown.push({ label: '🚗 গাড়ি', value: cs.label, score: cs.score });
-            } else {
-                breakdown.push({ label: '🚗 গাড়ি', value: 'তথ্য দেওয়া হয়নি', score: 0 });
-            }
+            const carScores = { 'none': { score: 0, label: 'গাড়ি নেই' }, 'bike': { score: 5, label: 'বাইক আছে' }, 'car_small': { score: 10, label: 'ছোট গাড়ি' }, 'car_premium': { score: 15, label: 'প্রিমিয়াম গাড়ি' } };
+            if (car) { totalScore += carScores[car.value].score; breakdown.push({ label: '🚗 গাড়ি', value: carScores[car.value].label, score: carScores[car.value].score }); } else { breakdown.push({ label: '🚗 গাড়ি', value: 'তথ্য নেই', score: 0 }); }
 
-            // Clamp score
-            if (totalScore < 0) totalScore = 0;
-            if (totalScore > 100) totalScore = 100;
-
-            // ===== Display Result =====
+            if (totalScore < 0) totalScore = 0; if (totalScore > 100) totalScore = 100;
             displayResult(totalScore, breakdown);
         }
 
@@ -939,39 +390,30 @@
             const resultDesc = document.getElementById('resultDescription');
             const resultBreakdown = document.getElementById('resultBreakdown');
             const progressBar = document.getElementById('progressBar');
+            const dowryResult = document.getElementById('dowryResult');
 
-            let emoji, title, description, className, barClass;
+            let emoji, title, description, className, barClass, dowryText;
 
             if (score >= 85) {
-                emoji = '👑';
-                title = 'স্বপ্নের পাত্র!';
-                description = 'এই পাত্র তো সোনার হরিণ! 🦌 বিসিএস/ডাক্তার/প্রবাসী + নিজের ফ্ল্যাট + কোনো খারাপ অভ্যাস নেই — মেয়ের বাবা-মা লাইন দিয়ে দাঁড়াবেন! 💍✨\n\n⚠️ সতর্কতা: এত ভালো পাত্রের "বাজার দর" বেশি হলে যৌতুকের ঝুঁকিও বেশি! সচেতন থাকুন!';
-                className = 'excellent';
-                barClass = '';
+                emoji = '👑'; title = 'স্বপ্নের পাত্র!'; className = 'excellent'; barClass = '';
+                description = 'এই পাত্র তো সোনার হরিণ! 🦌 বিসিএস/ডাক্তার/প্রবাসী + নিজের ফ্ল্যাট + কোনো খারাপ অভ্যাস নেই — মেয়ের বাবা-মা লাইন দিয়ে দাঁড়াবেন! 💍✨\n⚠️ সতর্কতা: এত ভালো পাত্রের "বাজার দর" বেশি হলে যৌতুকের ঝুঁকিও বেশি! সচেতন থাকুন!';
+                dowryText = `💰 কাল্পনিক যৌতুকের পরিমাণ: <span class="dowry-amount">৳ ৫,০০,০০০ - ৮,০০,০০০</span><br>(৫-৮ লাখ নগদ + ৫ ভরি সোনা + গাড়ি/বাইক)`;
             } else if (score >= 65) {
-                emoji = '🌟';
-                title = 'ভালো পাত্র!';
-                description = 'বেশ ভালো পয়েন্ট! চাকরি আছে, কিছু সম্পদ আছে, খারাপ অভ্যাস নেই বা কম। পরিবার পছন্দ করবে। 😊\n\n💡 পরামর্শ: যৌতুক না দিয়ে এই পাত্রকে "ভালোবাসা" দিয়ে জয় করুন!';
-                className = 'good';
-                barClass = 'good';
+                emoji = '🌟'; title = 'ভালো পাত্র!'; className = 'good'; barClass = 'good';
+                description = 'বেশ ভালো পয়েন্ট! চাকরি আছে, কিছু সম্পদ আছে, খারাপ অভ্যাস নেই বা কম। পরিবার পছন্দ করবে। 😊\n💡 পরামর্শ: যৌতুক না দিয়ে এই পাত্রকে "ভালোবাসা" দিয়ে জয় করুন!';
+                dowryText = `💰 কাল্পনিক যৌতুকের পরিমাণ: <span class="dowry-amount">৳ ৩,০০,০০০ - ৫,০০,০০০</span><br>(৩-৫ লাখ নগদ + ২-৩ ভরি সোনা)`;
             } else if (score >= 45) {
-                emoji = '😐';
-                title = 'মাঝারি পাত্র';
-                description = 'না খুব ভালো, না খুব খারাপ — মাঝারি মানের পাত্র। কিছু জিনিস আছে, কিছু নেই। সমন্বয় করে চলতে হবে। 🤷‍♂️\n\n💡 পরামর্শ: গুণ আছে, দোষ আছে — মানুষ তো! যৌতুক দিয়ে "অ্যাডজাস্টমেন্ট" করবেন না!';
-                className = 'average';
-                barClass = 'average';
+                emoji = '😐'; title = 'মাঝারি পাত্র'; className = 'average'; barClass = 'average';
+                description = 'না খুব ভালো, না খুব খারাপ — মাঝারি মানের পাত্র। কিছু জিনিস আছে, কিছু নেই। সমন্বয় করে চলতে হবে। 🤷‍♂️\n💡 পরামর্শ: গুণ আছে, দোষ আছে — মানুষ তো! যৌতুক দিয়ে "অ্যাডজাস্টমেন্ট" করবেন না!';
+                dowryText = `💰 কাল্পনিক যৌতুকের পরিমাণ: <span class="dowry-amount">৳ ১,০০,০০০ - ২,৫০,০০০</span><br>(১-২ লাখ নগদ + সংসারের জিনিসপত্র)`;
             } else if (score >= 25) {
-                emoji = '😰';
-                title = 'ঝুঁকিপূর্ণ পাত্র!';
-                description = 'সম্পদ কম, খারাপ অভ্যাস আছে অথবা পেশা স্থিতিশীল নয়। বিয়ে করলে কষ্ট হতে পারে। ⚠️\n\n🚨 সতর্কতা: এমন পাত্রকে যৌতুক দিয়ে "কভার" করার চেষ্টা করবেন না — সেটা আরও বিপদ!';
-                className = 'poor';
-                barClass = 'poor';
+                emoji = '😰'; title = 'ঝুঁকিপূর্ণ পাত্র!'; className = 'poor'; barClass = 'poor';
+                description = 'সম্পদ কম, খারাপ অভ্যাস আছে অথবা পেশা স্থিতিশীল নয়। বিয়ে করলে কষ্ট হতে পারে। ⚠️\n🚨 সতর্কতা: এমন পাত্রকে যৌতুক দিয়ে "কভার" করার চেষ্টা করবেন না — সেটা আরও বিপদ!';
+                dowryText = `💰 কাল্পনিক যৌতুকের পরিমাণ: <span class="dowry-amount">৳ ৩০,০০০ - ৮০,০০০</span><br>(৩০-৮০ হাজার নগদ + কিছু গয়না)`;
             } else {
-                emoji = '🚨';
-                title = 'সর্বনাশ! পাত্র নয়, বিপদ!';
-                description = 'এই পাত্রের "বাজার দর" নেতিবাচক! বেকার, কোনো সম্পদ নেই, একাধিক খারাপ অভ্যাস, প্রেমের ইতিহাস গোলমেলে... 😱\n\n🛑 সতর্কবাণী: যৌতুক দিয়ে এই পাত্রকে "কিনতে" যাবেন না! এটা বিয়ে নয়, বিপর্যয়!';
-                className = 'disaster';
-                barClass = 'disaster';
+                emoji = '🚨'; title = 'সর্বনাশ! পাত্র নয়, বিপদ!'; className = 'disaster'; barClass = 'disaster';
+                description = 'এই পাত্রের "বাজার দর" নেতিবাচক! বেকার, কোনো সম্পদ নেই, একাধিক খারাপ অভ্যাস, প্রেমের ইতিহাস গোলমেলে... 😱\n🛑 সতর্কবাণী: যৌতুক দিয়ে এই পাত্রকে "কিনতে" যাবেন না! এটা বিয়ে নয়, বিপর্যয়!';
+                dowryText = `💰 কাল্পনিক যৌতুকের পরিমাণ: <span class="dowry-amount dowry-strike">৳ ০</span><br>⛔ এমন পাত্রকে যৌতুক দেওয়া নয়, বরং সামাজিক সাহায্য প্রয়োজন!`;
             }
 
             resultBox.className = 'result-box ' + className;
@@ -982,28 +424,20 @@
             progressBar.style.width = score + '%';
             progressBar.className = 'progress-bar ' + barClass;
 
-            // Breakdown
+            dowryResult.innerHTML = `
+                <h3>⚠️ যৌতুকের "কাল্পনিক বাজার দর" (শুধু সচেতনতার জন্য)</h3>
+                ${dowryText}
+                <p class="dowry-warning">🚨 মনে রাখবেন: যৌতুক গ্রহণ বা দাবি করা বাংলাদেশে দণ্ডনীয় অপরাধ (যৌতুক প্রতিরোধ আইন, ১৯৮০)। এই পরিমাণ সম্পূর্ণ কাল্পনিক ও অবৈধ। বিয়ে ভালোবাসার বিনিময়, টাকার নয়!</p>
+            `;
+
             let breakdownHTML = '<h3 style="font-size:16px; margin-bottom:10px; color:#2c3e50;">📊 পয়েন্ট ব্রেকডাউন:</h3>';
             breakdown.forEach(item => {
                 const isNegative = item.score < 0;
-                breakdownHTML += `
-                    <div class="breakdown-item">
-                        <span class="breakdown-label">${item.label} — ${item.value}</span>
-                        <span class="breakdown-value ${isNegative ? 'negative' : ''}">
-                            ${isNegative ? '−' : '+'}${Math.abs(item.score)}
-                        </span>
-                    </div>
-                `;
+                breakdownHTML += `<div class="breakdown-item"><span class="breakdown-label">${item.label} — ${item.value}</span><span class="breakdown-value ${isNegative ? 'negative' : ''}">${isNegative ? '−' : '+'}${Math.abs(item.score)}</span></div>`;
             });
-            breakdownHTML += `
-                <div class="breakdown-item" style="border-top: 2px solid #0d7c3e; padding-top: 12px; margin-top: 5px;">
-                    <span class="breakdown-label" style="font-weight:700; color:#2c3e50;">মোট স্কোর</span>
-                    <span class="breakdown-value" style="background:#0d7c3e; color:#fff; font-size:16px;">${score}/১০০</span>
-                </div>
-            `;
+            breakdownHTML += `<div class="breakdown-item" style="border-top: 2px solid #0d7c3e; padding-top: 12px; margin-top: 5px;"><span class="breakdown-label" style="font-weight:700; color:#2c3e50;">মোট স্কোর</span><span class="breakdown-value" style="background:#0d7c3e; color:#fff; font-size:16px;">${score}/১০০</span></div>`;
             resultBreakdown.innerHTML = breakdownHTML;
 
-            // Show result
             const resultContainer = document.getElementById('result');
             resultContainer.style.display = 'block';
             resultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
